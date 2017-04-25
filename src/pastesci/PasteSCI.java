@@ -7,6 +7,7 @@ import java.util.*;
 import static java.util.Collections.list;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  * @author cesar.ramirez
  */
@@ -18,7 +19,27 @@ public class PasteSCI {
         String path; 
         String files ;
         String f;
-        int conteo;      
+        int conteo; 
+        
+
+            //Creamos selector de apertura
+            JFileChooser chooser = new JFileChooser();
+            chooser.setCurrentDirectory(new java.io.File("*.txt"));
+            //Titulo que llevara la ventana
+            chooser.setDialogTitle("Seleccionar carpeta de pegado");
+            //Elegiremos archivos del directorio
+            chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            chooser.setAcceptAllFileFilterUsed(false);
+            //Si seleccionamos algún archivo retornaremos su directorio
+            if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            //Si no seleccionamos nada retornaremos No seleccion
+       /// ---> mirar!!      System.out.println(chooser.);
+            } else {
+            System.out.println("No seleccion ");
+            }
+        
+        
         path = "C:\\Users\\cesar.ramirez\\Documents\\para pegar" ;    
     //**************************
         String filesBrowse;
