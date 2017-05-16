@@ -28,7 +28,12 @@ public class PasteSCI {
         int returnVal = chooser.showOpenDialog(chooser);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = chooser.getSelectedFile();
-            path = (file.getPath());
+            path = (file.getPath());            
+        }
+        
+        else {     
+            
+            System.exit(0);
         }
     //*******************************************************************************************************
         String filesBrowse;
@@ -61,11 +66,13 @@ public class PasteSCI {
                                 lineaComa[0] = Integer.toString(conteoLinea);
                                 StringBuffer cadena = new StringBuffer();                          
                                     for (int x=0;x<lineaComa.length;x++){
-                                          cadena =cadena.append(lineaComa[x]+","); 
-                                         pegado = cadena.toString() ;                          } 
-                                         System.out.println(pegado);
-                                         bfwriter.write(pegado);
-                                         bfwriter.newLine();
+                                         cadena =cadena.append(lineaComa[x]+","); 
+                                         pegado = cadena.toString() ;      
+                                        } 
+                                    
+                                        System.out.println(pegado);
+                                        bfwriter.write(pegado);
+                                        bfwriter.newLine();
                                          
                                     }          
                                 }       
